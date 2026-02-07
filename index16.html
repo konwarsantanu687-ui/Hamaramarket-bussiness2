@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Job Platform</title>
+
+<style>
+:root{
+  --bg:#f4f6f8;
+  --card:#ffffff;
+  --text:#111827;
+  --muted:#6b7280;
+  --primary:#2563eb;
+  --border:#e5e7eb;
+}
+*{box-sizing:border-box;font-family:Inter,system-ui,sans-serif}
+body{margin:0;background:var(--bg);color:var(--text)}
+
+/* Navbar */
+nav{
+  background:white;
+  border-bottom:1px solid var(--border);
+  padding:14px 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+}
+nav h1{margin:0;font-size:20px;color:var(--primary)}
+nav button{
+  background:none;
+  border:none;
+  font-size:15px;
+  margin-left:14px;
+  cursor:pointer;
+  color:var(--muted);
+}
+nav button:hover{color:var(--primary)}
+
+.container{max-width:900px;margin:auto;padding:20px}
+
+/* Pages */
+.page{display:none}
+.page.active{display:block}
+
+/* Cards */
+.card{
+  background:var(--card);
+  border-radius:14px;
+  padding:20px;
+  box-shadow:0 8px 25px rgba(0,0,0,.06);
+  margin-bottom:20px;
+}
+
+/* Profile */
+.cover{
+  height:180px;
+  background:linear-gradient(135deg,#2563eb,#1e40af);
+  border-radius:14px;
+}
+.profile-card{margin-top:-60px}
+.avatar{
+  width:120px;height:120px;
+  border-radius:50%;
+  background:#ddd;
+  border:4px solid white;
+  margin-top:-80px;
+}
+.profile-top{
+  display:flex;
+  gap:20px;
+}
+.profile-info p{color:var(--muted);margin:6px 0}
+.badge{
+  background:#dcfce7;
+  color:#166534;
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:13px;
+}
+.actions button{
+  padding:10px 16px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  background:white;
+  margin-right:8px;
+  cursor:pointer;
+}
+.actions .primary{
+  background:var(--primary);
+  color:white;
+  border:none;
+}
+
+.skills{display:flex;gap:10px;flex-wrap:wrap}
+.skill{background:#f1f5f9;padding:8px 12px;border-radius:999px;font-size:14px}
+
+.exp{border-left:3px solid var(--primary);padding-left:14px;margin-bottom:14px}
+
+@media(max-width:600px){
+  .profile-top{flex-direction:column;align-items:center;text-align:center}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h1>HamaraMarket</h1>
+  <div>
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('jobs')">Jobs</button>
+    <button onclick="showPage('chat')">Chat</button>
+    <button onclick="showPage('profile')">Profile</button>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- HOME -->
+  <div id="home" class="page active">
+    <div class="card">
+      <h2>Welcome to HamaraMarket</h2>
+      <p>A professional job hiring platform for workers and employers.</p>
+    </div>
+  </div>
+
+  <!-- JOBS -->
+  <div id="jobs" class="page">
+    <div class="card">
+      <h2>Jobs</h2>
+      <p>Post jobs or apply easily.</p>
+    </div>
+  </div>
+
+  <!-- CHAT -->
+  <div id="chat" class="page">
+    <div class="card">
+      <h2>Chat</h2>
+      <p>People chat & AI chat UI can be added here.</p>
+    </div>
+  </div>
+
+  <!-- PROFILE (ADDED) -->
+  <div id="profile" class="page">
+
+    <div class="cover"></div>
+
+    <div class="card profile-card">
+      <div class="profile-top">
+        <div class="avatar"></div>
+        <div class="profile-info">
+          <h2>Santanu Konwar</h2>
+          <p>Frontend Developer • Job Platform Builder</p>
+          <p>India 🇮🇳</p>
+          <span class="badge">Open to Work</span>
+          <div class="actions">
+            <button class="primary">Connect</button>
+            <button>Message</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>About</h3>
+      <p>Building professional job hiring platforms with modern UI and smooth experience.</p>
+    </div>
+
+    <div class="card">
+      <h3>Skills</h3>
+      <div class="skills">
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">UI/UX</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Experience</h3>
+      <div class="exp">
+        <h4>Frontend Developer</h4>
+        <p class="muted">2024 – Present</p>
+        <p>LinkedIn-style job platform UI</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+</script>
+
+</body>
+</html>
